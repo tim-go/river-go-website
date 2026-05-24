@@ -1,0 +1,16 @@
+{
+  "projects": {
+    "production": "river-go-prod",
+    "default": "river-go-prod"
+  },
+  "targets": {
+    "river-go-prod": {
+      "hosting": {
+        "riverlaunch-prod": [
+          "riverlaunch-app"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
