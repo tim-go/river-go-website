@@ -14,7 +14,25 @@
         ]
       },
       {
-        "source": "**/*.@(css|js)",
+        "source": "assets/analytics-config.js",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-store"
+          }
+        ]
+      },
+      {
+        "source": "**/*.css",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=3600"
+          }
+        ]
+      },
+      {
+        "source": "assets/analytics.js",
         "headers": [
           {
             "key": "Cache-Control",

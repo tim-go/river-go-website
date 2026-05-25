@@ -22,7 +22,7 @@
           <a href="index.html" aria-current="page">Home</a>
           <a href="product.html">Product</a>
           <a href="community.html">Community</a>
-          <a class="button button--ghost" href="mailto:hello@riverlaunch.app">Pilot enquiries</a>
+          <a class="button button--ghost" href="mailto:hello@riverlaunch.app" data-analytics-event="generate_lead" data-analytics-source="marketing_site">Pilot enquiries</a>
         </nav>
       </div>
     </header>
@@ -30,7 +30,7 @@
       <div class="preview-banner__inner">
         <strong>Preview only:</strong>
         <span>The application preview is available at staging.riverlaunch.app.</span>
-        <a href="https://staging.riverlaunch.app">Open preview app</a>
+        <a href="https://staging.riverlaunch.app" data-analytics-event="select_content" data-analytics-content-type="cta" data-analytics-item-id="preview_banner_open_app">Open preview app</a>
       </div>
     </aside>
 
@@ -44,7 +44,7 @@
             hazards, photos, recent reports, and live level context in one place.
           </p>
           <div class="hero__actions">
-            <a class="button" href="https://staging.riverlaunch.app">Open preview app</a>
+            <a class="button" href="https://staging.riverlaunch.app" data-analytics-event="select_content" data-analytics-content-type="cta" data-analytics-item-id="hero_open_preview_app">Open preview app</a>
             <a class="button" href="product.html">See the product</a>
             <a class="button button--ghost" href="community.html">How contributions work</a>
           </div>
@@ -137,7 +137,7 @@
               </p>
             </div>
             <div class="cta-row">
-              <a class="button button--dark" href="https://staging.riverlaunch.app">Open staging.riverlaunch.app</a>
+              <a class="button button--dark" href="https://staging.riverlaunch.app" data-analytics-event="select_content" data-analytics-content-type="cta" data-analytics-item-id="preview_cta_open_app">Open staging.riverlaunch.app</a>
             </div>
           </div>
         </div>
@@ -200,9 +200,18 @@
         <nav class="footer-links" aria-label="Footer">
           <a href="product.html">Product</a>
           <a href="community.html">Community</a>
-          <a href="mailto:hello@riverlaunch.app">Contact</a>
+          <a href="mailto:hello@riverlaunch.app" data-analytics-event="generate_lead" data-analytics-source="marketing_site">Contact</a>
         </nav>
       </div>
     </footer>
+    <div class="analytics-consent" id="analytics-consent" hidden>
+      <p>We use analytics to understand which pages and features are useful. You can use the site without analytics.</p>
+      <div class="analytics-consent__actions">
+        <button type="button" class="button button--dark" data-analytics-accept>Allow analytics</button>
+        <button type="button" class="button button--ghost" data-analytics-decline>Not now</button>
+      </div>
+    </div>
+    <script src="assets/analytics-config.js"></script>
+    <script src="assets/analytics.js"></script>
   </body>
 </html>

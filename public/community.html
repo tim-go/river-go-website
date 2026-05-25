@@ -19,7 +19,7 @@
           <a href="index.html">Home</a>
           <a href="product.html">Product</a>
           <a href="community.html" aria-current="page">Community</a>
-          <a class="button button--dark" href="mailto:hello@riverlaunch.app">Pilot enquiries</a>
+          <a class="button button--dark" href="mailto:hello@riverlaunch.app" data-analytics-event="generate_lead" data-analytics-source="marketing_site">Pilot enquiries</a>
         </nav>
       </div>
     </header>
@@ -27,7 +27,7 @@
       <div class="preview-banner__inner">
         <strong>Preview only:</strong>
         <span>Try the current RiverLaunch application preview at staging.riverlaunch.app.</span>
-        <a href="https://staging.riverlaunch.app">Open preview app</a>
+        <a href="https://staging.riverlaunch.app" data-analytics-event="select_content" data-analytics-content-type="cta" data-analytics-item-id="preview_banner_open_app">Open preview app</a>
       </div>
     </aside>
     <main>
@@ -91,7 +91,7 @@
               </p>
             </div>
             <div class="cta-row">
-              <a class="button button--dark" href="https://staging.riverlaunch.app">Open preview app</a>
+              <a class="button button--dark" href="https://staging.riverlaunch.app" data-analytics-event="select_content" data-analytics-content-type="cta" data-analytics-item-id="community_preview_open_app">Open preview app</a>
             </div>
           </div>
         </div>
@@ -126,5 +126,14 @@
         </nav>
       </div>
     </footer>
+    <div class="analytics-consent" id="analytics-consent" hidden>
+      <p>We use analytics to understand which pages and features are useful. You can use the site without analytics.</p>
+      <div class="analytics-consent__actions">
+        <button type="button" class="button button--dark" data-analytics-accept>Allow analytics</button>
+        <button type="button" class="button button--ghost" data-analytics-decline>Not now</button>
+      </div>
+    </div>
+    <script src="assets/analytics-config.js"></script>
+    <script src="assets/analytics.js"></script>
   </body>
 </html>
