@@ -1,6 +1,6 @@
-# RiverLaunch.app Website
+# RiverLaunch.info Website
 
-Static marketing website for RiverLaunch.app.
+Static marketing website for RiverLaunch.info.
 
 The site is intentionally plain HTML, CSS, and small vanilla JavaScript files so
 Firebase Hosting can serve it without a bundler. Product screenshots are
