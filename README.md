@@ -9,8 +9,22 @@ captured from the sibling `../river-go` app and stored in
 
 ## Local preview
 
-Open `public/index.html` in a browser, or run a local static server from this
-repository if you want clean URL behaviour.
+Run the bundled lightweight dev server (zero dependencies, just Node):
+
+```sh
+npm run dev
+```
+
+It serves `public/` at http://localhost:5050 and mirrors the Firebase Hosting
+config locally — clean URLs (`/product` → `product.html`), no trailing slashes,
+and the custom `404.html`. Override the port or host with `PORT` / `HOST`:
+
+```sh
+PORT=8080 npm run dev
+```
+
+You can still open `public/index.html` directly in a browser, but file URLs do
+not get the clean-URL behaviour.
 
 ## Firebase Hosting
 
