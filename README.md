@@ -1,6 +1,6 @@
-# RiverLaunch.info Website
+# RiverLaunch.app Website
 
-Static marketing website for RiverLaunch.info.
+Static marketing website for RiverLaunch.app.
 
 The site is intentionally plain HTML, CSS, and small vanilla JavaScript files so
 Firebase Hosting can serve it without a bundler. Product screenshots are
@@ -32,7 +32,7 @@ The site ships the app's **Surge** theme (dark navy with electric-blue and
 signal-yellow accents, Space Grotesk + Sora type) as the default, with a
 **Daybreak** light alternate. The two share one accent language and are driven
 entirely by CSS custom properties in `public/assets/site.css` — Surge tokens
-live in `:root`, Daybreak overrides under `[data-theme="daybreak"]`. The header
+live in `:root`, Daybreak overrides under `[data-theme="daybreak"]`. A footer
 toggle (wired by `public/assets/theme.js`) flips `data-theme` on `<html>` and
 remembers the choice in `localStorage`; a tiny inline `<head>` script applies
 the saved theme before paint to avoid a flash.

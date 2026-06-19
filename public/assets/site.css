@@ -755,6 +755,20 @@ h3 {
   color: var(--blue-bright);
 }
 
+/* The footer is always dark, so the toggle keeps light-on-dark styling in both
+   themes (the default .theme-toggle uses theme surfaces, which invert). */
+.site-footer .theme-toggle {
+  min-height: 34px;
+  border-color: rgba(var(--on-dark-rgb), 0.22);
+  background: rgba(var(--on-dark-rgb), 0.08);
+  color: rgba(var(--on-dark-rgb), 0.92);
+}
+
+.site-footer .theme-toggle:hover {
+  border-color: rgba(var(--on-dark-rgb), 0.36);
+  background: rgba(var(--on-dark-rgb), 0.14);
+}
+
 /* ---------- Analytics consent ---------- */
 .analytics-consent {
   position: fixed;

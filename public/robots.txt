@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://riverlaunch.info/sitemap.xml
+Sitemap: https://riverlaunch.app/sitemap.xml

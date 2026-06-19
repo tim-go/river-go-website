@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Static marketing website for RiverLaunch.info",
+  "description": "Static marketing website for RiverLaunch.app",
   "scripts": {
     "dev": "node scripts/server.mjs",
     "start": "node scripts/server.mjs",

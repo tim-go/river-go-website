@@ -1,6 +1,6 @@
-# Deploying RiverLaunch.info
+# Deploying RiverLaunch.app
 
-This website is a static Firebase Hosting site for `riverlaunch.info`.
+This website is a static Firebase Hosting site for `riverlaunch.app`.
 
 The repository is currently configured for a Firebase Hosting target named
 `riverlaunch-prod` and a Hosting site id named `riverlaunch-app`.
@@ -9,7 +9,7 @@ The repository is currently configured for a Firebase Hosting target named
 
 - Firebase CLI installed and authenticated.
 - Permission to create or manage the production Firebase/GCP project.
-- DNS access for `riverlaunch.info`.
+- DNS access for `riverlaunch.app`.
 
 ```sh
 firebase login
@@ -63,7 +63,7 @@ RIVERLAUNCH_FIREBASE_MEASUREMENT_ID=G-WVKM71E8VW node scripts/build-analytics-co
 firebase deploy --only hosting:riverlaunch-prod --project river-go-prod
 ```
 
-Do not use the staging measurement ID for the production `riverlaunch.info`
+Do not use the staging measurement ID for the production `riverlaunch.app`
 domain once a production marketing web stream exists.
 
 ## Analytics Consent
@@ -91,14 +91,14 @@ After deploy:
 
 ## Add the Custom Domain
 
-After the first deploy, add `riverlaunch.info` in the Firebase Console:
+After the first deploy, add `riverlaunch.app` in the Firebase Console:
 
 1. Open the `river-go-prod` Firebase project.
 2. Go to Hosting.
 3. Select the `riverlaunch-app` site.
 4. Choose Add custom domain.
-5. Enter `riverlaunch.info`.
+5. Enter `riverlaunch.app`.
 6. Add the DNS records Firebase provides at the domain registrar.
 
-Firebase will serve `riverlaunch.info` once DNS verification and certificate
+Firebase will serve `riverlaunch.app` once DNS verification and certificate
 provisioning complete.
