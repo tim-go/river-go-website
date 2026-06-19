@@ -1,8 +1,19 @@
 <!doctype html>
-<html lang="en-GB">
+<html lang="en-GB" data-theme="surge">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("rl-theme");
+          if (t === "daybreak" || t === "surge") document.documentElement.setAttribute("data-theme", t);
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
     <title>Page not found | RiverLaunch.info</title>
     <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="assets/site.css">
@@ -12,12 +23,16 @@
       <div class="nav-inner">
         <a class="brand" href="index.html">
           <img src="assets/icons/favicon.svg" alt="">
-          <span><strong>RiverLaunch.info</strong><small>River intelligence</small></span>
+          <span><strong>River<span class="brand-launch">Launch</span>.app</strong><small>River intelligence</small></span>
         </a>
         <nav class="nav-links" aria-label="Main navigation">
           <a href="index.html">Home</a>
           <a href="product.html">Product</a>
           <a href="community.html">Community</a>
+          <button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch theme">
+            <span class="theme-toggle__dot" aria-hidden="true"></span>
+            <span data-theme-label>Surge</span>
+          </button>
         </nav>
       </div>
     </header>
@@ -36,6 +51,7 @@
         <button type="button" class="button button--ghost" data-analytics-decline>Not now</button>
       </div>
     </div>
+    <script src="assets/theme.js"></script>
     <script src="assets/analytics-config.js"></script>
     <script src="assets/analytics.js"></script>
   </body>

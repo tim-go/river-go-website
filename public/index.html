@@ -1,8 +1,19 @@
 <!doctype html>
-<html lang="en-GB">
+<html lang="en-GB" data-theme="surge">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("rl-theme");
+          if (t === "daybreak" || t === "surge") document.documentElement.setAttribute("data-theme", t);
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
     <title>RiverLaunch.info | Community river intelligence for paddlers</title>
     <meta name="description" content="RiverLaunch.info helps UK canoeists plan real river sections with live level context, access notes, hazards, photos, and fresh community reports.">
     <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
@@ -14,7 +25,7 @@
         <a class="brand" href="index.html" aria-label="RiverLaunch.info home">
           <img src="assets/icons/favicon.svg" alt="">
           <span>
-            <strong>RiverLaunch.info</strong>
+            <strong>River<span class="brand-launch">Launch</span>.app</strong>
             <small>River intelligence</small>
           </span>
         </a>
@@ -23,6 +34,10 @@
           <a href="product.html">Product</a>
           <a href="community.html">Community</a>
           <a class="button button--ghost" href="mailto:hello@riverlaunch.info" data-analytics-event="generate_lead" data-analytics-source="marketing_site">Pilot enquiries</a>
+          <button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch theme">
+            <span class="theme-toggle__dot" aria-hidden="true"></span>
+            <span data-theme-label>Surge</span>
+          </button>
         </nav>
       </div>
     </header>
@@ -38,13 +53,13 @@
       <section class="hero">
         <div class="hero__content">
           <p class="eyebrow">UK-first canoe planning</p>
-          <h1>RiverLaunch.info</h1>
+          <h1>River<span class="brand-launch">Launch</span>.app</h1>
           <p class="hero__copy">
             Community-maintained river-section knowledge for paddlers: access points,
             hazards, photos, recent reports, and live level context in one place.
           </p>
           <div class="hero__actions">
-            <a class="button" href="https://staging.riverlaunch.info" target="_blank" rel="noopener" data-analytics-event="select_content" data-analytics-content-type="cta" data-analytics-item-id="hero_open_preview_app">Open preview app</a>
+            <a class="button button--dark" href="https://staging.riverlaunch.info" target="_blank" rel="noopener" data-analytics-event="select_content" data-analytics-content-type="cta" data-analytics-item-id="hero_open_preview_app">Open preview app</a>
             <a class="button" href="product.html">See the product</a>
             <a class="button button--ghost" href="community.html">How contributions work</a>
           </div>
@@ -106,18 +121,18 @@
       <section class="section section--soft">
         <div class="container visual-pair">
           <figure class="screenshot">
-            <img src="assets/screenshots/app-section-community.png" alt="RiverLaunch.info section detail showing a route, hazards, gauge information, and contribution actions.">
+            <img src="assets/screenshots/app-discover.png" alt="RiverLaunch.info Discover page listing UK rivers with live level readings, trend sparklines, grades, and discipline tags.">
           </figure>
           <div class="copy-block">
-            <p class="eyebrow">Prototype screens</p>
-            <h2>Built around the shared knowledge layer.</h2>
+            <p class="eyebrow">Discover rivers</p>
+            <h2>Every river, with live level context at a glance.</h2>
             <p>
-              The current app prototype already models section pages, access points,
-              hazard confirmations, local updates, favourites, profiles, moderation,
-              and sync-ready contribution outboxes.
+              The Discover page brings UK rivers together with current gauge
+              readings, trend sparklines, grades, discipline tags, and section
+              counts — filterable by whitewater, canoe touring, and nation.
             </p>
             <p class="caption">
-              Screenshots show prototype app content. River and access information
+              Screenshots show preview app content. River and access information
               should be locally verified before public trip planning.
             </p>
           </div>
@@ -211,6 +226,7 @@
         <button type="button" class="button button--ghost" data-analytics-decline>Not now</button>
       </div>
     </div>
+    <script src="assets/theme.js"></script>
     <script src="assets/analytics-config.js"></script>
     <script src="assets/analytics.js"></script>
   </body>

@@ -1,8 +1,19 @@
 <!doctype html>
-<html lang="en-GB">
+<html lang="en-GB" data-theme="surge">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("rl-theme");
+          if (t === "daybreak" || t === "surge") document.documentElement.setAttribute("data-theme", t);
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
     <title>Product | RiverLaunch.info</title>
     <meta name="description" content="See how RiverLaunch.info combines river sections, map context, gauges, access notes, hazards, photos, and community updates.">
     <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
@@ -13,13 +24,17 @@
       <div class="nav-inner">
         <a class="brand" href="index.html">
           <img src="assets/icons/favicon.svg" alt="">
-          <span><strong>RiverLaunch.info</strong><small>River intelligence</small></span>
+          <span><strong>River<span class="brand-launch">Launch</span>.app</strong><small>River intelligence</small></span>
         </a>
         <nav class="nav-links" aria-label="Main navigation">
           <a href="index.html">Home</a>
           <a href="product.html" aria-current="page">Product</a>
           <a href="community.html">Community</a>
           <a class="button button--dark" href="mailto:hello@riverlaunch.info" data-analytics-event="generate_lead" data-analytics-source="marketing_site">Pilot enquiries</a>
+          <button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch theme">
+            <span class="theme-toggle__dot" aria-hidden="true"></span>
+            <span data-theme-label>Surge</span>
+          </button>
         </nav>
       </div>
     </header>
@@ -46,27 +61,21 @@
         <div class="container gallery">
           <figure>
             <div class="screenshot">
-              <img src="assets/screenshots/app-map-sections.png" alt="RiverLaunch.info map with route line, access marker, hazard marker, gauge marker, and section navigation.">
+              <img src="assets/screenshots/app-map-river.png" alt="RiverLaunch.info map with a selected river, access, hazard, and gauge markers, and a river panel showing the live level.">
             </div>
-            <figcaption>Map-first browsing with routes, access, hazards, features, and gauges displayed together.</figcaption>
+            <figcaption>Map-first browsing: routes, access points, hazards, and gauges share one view, with a live river panel alongside.</figcaption>
           </figure>
           <figure>
             <div class="screenshot">
-              <img src="assets/screenshots/app-section-community.png" alt="RiverLaunch.info section panel showing metrics, runnable guidance, contribution actions, and gauge information.">
+              <img src="assets/screenshots/app-discover.png" alt="RiverLaunch.info Discover page listing UK rivers with live levels, trend sparklines, grades, and filters.">
             </div>
-            <figcaption>Section detail brings distance, timing, levels, access, hazards, reports, and photos into one planning view.</figcaption>
+            <figcaption>Discover rivers with live level readings, trend sparklines, grades, and filters for discipline and nation.</figcaption>
           </figure>
           <figure>
             <div class="screenshot">
-              <img src="assets/screenshots/app-search.png" alt="RiverLaunch.info search screen listing UK river sections and current level bands.">
+              <img src="assets/screenshots/app-river-detail.png" alt="RiverLaunch.info river detail panel with levels, rapids, hazards, access, and photos tabs and a gauge history chart.">
             </div>
-            <figcaption>Search and filters are organised around sections, suitability, level bands, and craft needs.</figcaption>
-          </figure>
-          <figure>
-            <div class="screenshot screenshot--phone">
-              <img src="assets/screenshots/app-mobile-map.png" alt="Mobile RiverLaunch.info map showing bottom navigation, route controls, and map markers.">
-            </div>
-            <figcaption>Mobile workflows keep map controls, saved sections, profile, and contribution entry within reach.</figcaption>
+            <figcaption>River detail brings levels, rapids, hazards, access, photos, and gauge history into one planning view.</figcaption>
           </figure>
         </div>
       </section>
@@ -100,26 +109,26 @@
             </div>
             <p>
               These phone-framed screenshots show the authenticated preview app
-              on a mobile form factor, including the map, section details, live
-              level context, and community update flow.
+              on a mobile form factor — the map, the Discover river list, live
+              level context, and the data sources behind each river.
             </p>
           </div>
           <div class="phone-gallery">
             <figure>
-              <img src="assets/screenshots/framed-phone-map.png" alt="Phone-framed RiverLaunch.info mobile map for a river section.">
-              <figcaption>Map view with section route, gauges, hazards, and bottom navigation.</figcaption>
+              <img src="assets/screenshots/framed-phone-map.png" alt="Phone-framed RiverLaunch.info mobile map with river markers and bottom navigation.">
+              <figcaption>Map view with the river layer, gauges, hazards, and bottom navigation.</figcaption>
             </figure>
             <figure>
-              <img src="assets/screenshots/framed-phone-route-details.png" alt="Phone-framed RiverLaunch.info section details screen.">
-              <figcaption>Section details with distance, timing, level band, and cautious route guidance.</figcaption>
+              <img src="assets/screenshots/framed-phone-discover.png" alt="Phone-framed RiverLaunch.info Discover river list with live levels and filters.">
+              <figcaption>Discover rivers with live levels, sparklines, and filters — built for one hand on the bank.</figcaption>
             </figure>
             <figure>
-              <img src="assets/screenshots/framed-phone-levels.png" alt="Phone-framed RiverLaunch.info levels screen.">
-              <figcaption>Live level context and provider observations tied to a real section.</figcaption>
+              <img src="assets/screenshots/framed-phone-levels.png" alt="Phone-framed RiverLaunch.info river levels screen with a gauge history chart.">
+              <figcaption>Live gauge readings and history tied to a real river section.</figcaption>
             </figure>
             <figure>
-              <img src="assets/screenshots/framed-phone-updates.png" alt="Phone-framed RiverLaunch.info community updates screen.">
-              <figcaption>Community update flow for reports, hazards, access notes, and photos.</figcaption>
+              <img src="assets/screenshots/framed-phone-about.png" alt="Phone-framed RiverLaunch.info river sources and gaps screen.">
+              <figcaption>Sources and gaps: where each detail came from and what still needs local confirmation.</figcaption>
             </figure>
           </div>
         </div>
@@ -159,6 +168,7 @@
         <button type="button" class="button button--ghost" data-analytics-decline>Not now</button>
       </div>
     </div>
+    <script src="assets/theme.js"></script>
     <script src="assets/analytics-config.js"></script>
     <script src="assets/analytics.js"></script>
   </body>
