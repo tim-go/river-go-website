@@ -1,5 +1,5 @@
-// Theme toggle for the marketing site: Surge (default, dark) <-> Daybreak
-// (light). The initial theme is set pre-paint by a tiny inline script in <head>
+// Theme toggle for the marketing site: Daybreak (default, light) <-> Surge
+// (dark). The initial theme is set pre-paint by a tiny inline script in <head>
 // (reads the saved preference); this file only wires up the toggle button(s)
 // and keeps their label in sync. Persists to localStorage under "rl-theme".
 (function () {

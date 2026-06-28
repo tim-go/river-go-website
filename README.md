@@ -28,9 +28,9 @@ not get the clean-URL behaviour.
 
 ## Theme
 
-The site ships the app's **Surge** theme (dark navy with electric-blue and
-signal-yellow accents, Space Grotesk + Sora type) as the default, with a
-**Daybreak** light alternate. The two share one accent language and are driven
+The site ships a **Daybreak** light theme (Space Grotesk + Sora type, electric-blue
+and signal-yellow accents) as the default, with the app's **Surge** dark navy
+alternate. The two share one accent language and are driven
 entirely by CSS custom properties in `public/assets/site.css` — Surge tokens
 live in `:root`, Daybreak overrides under `[data-theme="daybreak"]`. A footer
 toggle (wired by `public/assets/theme.js`) flips `data-theme` on `<html>` and

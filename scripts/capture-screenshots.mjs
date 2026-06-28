@@ -6,12 +6,14 @@
 // the final PNGs into public/assets/screenshots.
 //
 // Requirements:
-//   - The app running locally (default http://localhost:6173/).
+//   - A running app instance. Capture against the live staging app with
+//     APP_URL=https://staging.riverlaunch.app/ or a local dev server.
 //   - Playwright installed in the app repo and a chromium browser downloaded
 //     (`npx playwright install chromium`).
 //
 // Usage:
-//   APP_USER=you@example.com APP_PASS=secret node scripts/capture-screenshots.mjs
+//   APP_URL=https://staging.riverlaunch.app/ APP_USER=you@example.com APP_PASS=secret \
+//     node scripts/capture-screenshots.mjs
 //
 // Env overrides:
 //   APP_URL           default http://localhost:6173/
@@ -22,7 +24,7 @@
 
 import { createRequire } from "node:module";
 import { resolve, dirname } from "node:path";
-import { readFileSync, readdirSync, existsSync } from "node:fs";
+import { readdirSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { homedir } from "node:os";
 
@@ -60,6 +62,7 @@ const browser = await chromium.launch({ executablePath: EXE, args: ["--no-sandbo
 
 async function login(page) {
   await page.goto(APP_URL, { waitUntil: "domcontentloaded" });
+  await page.waitForTimeout(1000);
   await page.getByRole("button", { name: "Sign in", exact: true }).click();
   await page.getByLabel("Email").fill(APP_USER);
   await page.getByLabel("Password").fill(APP_PASS);
@@ -67,48 +70,68 @@ async function login(page) {
   await page.waitForSelector(".auth-sheet", { state: "detached", timeout: 30000 });
   const notNow = page.getByRole("button", { name: "Not now" });
   if (await notNow.count().catch(() => 0)) await notNow.first().click().catch(() => {});
-  await page.waitForTimeout(500);
+  await page.waitForTimeout(1200);
 }
+
+// nav by label; desktop uses the side rail, mobile the bottom bar.
+const nav = (page, label, mobile) =>
+  page.locator(mobile ? ".bottom-nav__item" : ".app-nav__item", { hasText: label }).first().click();
 
 // The backend cold-starts (first calls 500), so gate on river cards appearing.
 const waitRivers = async (page) => {
   await page.waitForSelector(".river-card", { timeout: 60000 });
   await page.waitForFunction(() => document.querySelectorAll(".river-card").length > 5, undefined, { timeout: 30000 }).catch(() => {});
 };
-const nav = (page, label, mobile) =>
-  page.locator(mobile ? ".bottom-nav__item" : ".app-nav__item", { hasText: label }).first().click();
-const tab = async (page, label) => {
-  const t = page.locator(".river-detail-tabs button", { hasText: label });
-  if (await t.count()) { await t.first().click(); await page.waitForTimeout(1600); }
-};
+
+// Open a river detail panel from the Discover list and select a tab.
+async function openRiver(page, tabLabel) {
+  await page.locator(".river-card").first().click();
+  await page.waitForSelector(".detail-panel--open", { timeout: 20000 });
+  await page.waitForTimeout(2500);
+  if (tabLabel) {
+    const t = page.locator(".detail-panel button", { hasText: tabLabel });
+    if (await t.count()) { await t.first().click(); await page.waitForTimeout(1800); }
+  }
+}
 
 async function captureDesktop() {
   const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2 });
   const page = await ctx.newPage();
   await login(page);
 
+  // Clean, chrome-free map for the marketing hero.
+  await nav(page, "Map", false);
+  await page.waitForSelector(".leaflet-container", { timeout: 20000 });
+  await page.waitForTimeout(4500);
+  await page.locator(".leaflet-container").screenshot({ path: resolve(OUT, "hero-map.png") });
+
+  // Same map with the Layers panel expanded — shows the layer/filter system.
+  await page.locator(".map-filter__expander").first().click();
+  await page.waitForTimeout(1200);
+  await page.screenshot({ path: resolve(OUT, "app-map-layers.png") });
+
+  // Discover list.
   await nav(page, "Discover", false);
   await waitRivers(page);
   await page.waitForTimeout(2500);
   await page.screenshot({ path: resolve(OUT, "app-discover.png") });
 
-  await page.locator(".river-card").first().click();
-  await page.waitForSelector(".watercourse-panel", { timeout: 20000 });
-  await page.waitForTimeout(3000);
-  await page.screenshot({ path: resolve(OUT, "app-map-river.png") });
+  // River detail panel (Levels tab).
+  await openRiver(page, "Levels");
+  await page.locator(".detail-panel").first().screenshot({ path: resolve(OUT, "app-river-detail.png") });
 
-  await tab(page, "Levels");
-  await page.locator(".watercourse-panel").screenshot({ path: resolve(OUT, "app-river-detail.png") });
-  console.log("desktop: app-discover, app-map-river, app-river-detail");
+  console.log("desktop: hero-map, app-map-layers, app-discover, app-river-detail");
   await ctx.close();
 }
 
 async function captureMobile() {
-  const shots = []; // [rawBuffer-path, framedName]
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true });
   const page = await ctx.newPage();
   await login(page);
-  await page.waitForTimeout(2500);
+
+  await nav(page, "Map", true);
+  await page.waitForSelector(".leaflet-container", { timeout: 20000 });
+  await page.waitForTimeout(4000);
   const map = await page.screenshot();
 
   await nav(page, "Discover", true);
@@ -116,16 +139,14 @@ async function captureMobile() {
   await page.waitForTimeout(2500);
   const discover = await page.screenshot();
 
-  await page.locator(".river-card").first().click();
-  await page.waitForSelector(".watercourse-panel", { timeout: 20000 });
-  await page.waitForTimeout(2500);
-  await tab(page, "Levels");
+  await openRiver(page, "Levels");
   const levels = await page.screenshot();
-  await tab(page, "About");
+  const aboutTab = page.locator(".detail-panel button", { hasText: "About" });
+  if (await aboutTab.count()) { await aboutTab.first().click(); await page.waitForTimeout(1600); }
   const about = await page.screenshot();
   await ctx.close();
 
-  await frame(page, [
+  await frame([
     [map, "framed-phone-map.png"],
     [discover, "framed-phone-discover.png"],
     [levels, "framed-phone-levels.png"],
@@ -153,7 +174,7 @@ const frameHtml = (dataUri) => `<!doctype html><meta charset="utf-8"><style>
   <div class="screen"><img src="${dataUri}"></div>
 </div></div>`;
 
-async function frame(_p, jobs) {
+async function frame(jobs) {
   const page = await browser.newPage({ viewport: { width: 560, height: 1000 }, deviceScaleFactor: 2 });
   for (const [buf, out] of jobs) {
     const uri = "data:image/png;base64," + buf.toString("base64");

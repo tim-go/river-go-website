@@ -1,7 +1,7 @@
 /* ===========================================================================
    RiverLaunch.info marketing theme.
    Two themes share one accent language (electric blue + signal yellow + teal
-   touring). Surge (dark & electric) is the default; Daybreak (light & bright)
+   touring). Daybreak (light & bright) is the default; Surge (dark & electric)
    is the alternate, toggled by data-theme on <html>. Theme-independent tokens
    (fonts, radius, layout) live in :root; palette tokens are themed below.
    =========================================================================== */
@@ -14,13 +14,12 @@
   --radius-lg: 16px;
   --radius-pill: 999px;
   --maxw: 1080px;
-  --hero-image: url("screenshots/app-map-river.png");
+  --hero-image: url("screenshots/hero-map.png");
 
   /* Always-dark surfaces (hero scrim, ink section, footer) keep light text in
      both themes, so these never flip. */
   --on-dark: #ffffff;
   --on-dark-rgb: 234, 240, 255;
-  --hero-overlay-rgb: 6, 10, 26;
 
   /* ---- Surge (default: dark & electric) ---- */
   color-scheme: dark;
@@ -161,6 +160,11 @@ a {
 
 .brand-launch {
   color: var(--yellow);
+}
+
+/* Daybreak uses brand blue for the wordmark accent (Surge keeps signal yellow). */
+[data-theme="daybreak"] .brand-launch {
+  color: var(--blue);
 }
 
 /* ---------- Header ---------- */
@@ -395,25 +399,28 @@ a {
 .hero {
   position: relative;
   display: grid;
-  min-height: 72svh;
+  min-height: 58svh;
   overflow: hidden;
   background-image:
-    linear-gradient(90deg, rgba(var(--hero-overlay-rgb), 0.94), rgba(var(--hero-overlay-rgb), 0.6) 46%, rgba(var(--hero-overlay-rgb), 0.24)),
+    linear-gradient(
+      95deg,
+      rgba(247, 250, 255, 0.5) 0%,
+      rgba(247, 250, 255, 0.22) 38%,
+      rgba(247, 250, 255, 0) 64%
+    ),
     var(--hero-image);
   background-position: center;
   background-size: cover;
-  color: var(--on-dark);
+  color: #0d1b3e;
 }
 
-/* Electric blue glow bleeding up from the hero base. */
+/* Faint light vignette at the base so the bright map blends downward. */
 .hero::after {
   content: "";
   position: absolute;
   inset: auto 0 0;
-  height: 42%;
-  background:
-    radial-gradient(60% 100% at 18% 120%, rgba(47, 107, 255, 0.4), transparent 70%),
-    linear-gradient(0deg, rgba(var(--hero-overlay-rgb), 0.7), transparent);
+  height: 34%;
+  background: linear-gradient(0deg, rgba(247, 250, 255, 0.28), transparent);
   pointer-events: none;
 }
 
@@ -423,7 +430,7 @@ a {
   align-self: center;
   width: min(var(--maxw), calc(100% - 32px));
   margin: 0 auto;
-  padding: 54px 0 72px;
+  padding: 40px 0 52px;
 }
 
 .eyebrow {
@@ -436,7 +443,8 @@ a {
 }
 
 .hero .eyebrow {
-  color: #8fb4ff;
+  color: var(--blue);
+  text-shadow: 0 1px 4px rgba(247, 250, 255, 0.9);
 }
 
 h1,
@@ -460,6 +468,20 @@ h1 {
   line-height: 0.94;
 }
 
+.hero h1 {
+  font-size: clamp(2.4rem, 5.2vw, 4.6rem);
+  color: #0d1b3e;
+  /* White border around the wordmark so it reads over the bright map. */
+  -webkit-text-stroke: 6px #ffffff;
+  paint-order: stroke fill;
+  text-shadow: 0 2px 12px rgba(13, 27, 62, 0.18);
+}
+
+/* Wordmark accent stays blue over the light hero map in both themes. */
+.hero .brand-launch {
+  color: var(--blue);
+}
+
 h2 {
   margin-bottom: 12px;
   font-size: clamp(1.65rem, 3vw, 3.1rem);
@@ -475,9 +497,11 @@ h3 {
 .hero__copy {
   width: min(650px, 100%);
   margin-bottom: 20px;
-  color: rgba(var(--on-dark-rgb), 0.9);
+  color: #16213f;
+  font-weight: 500;
   font-size: clamp(1rem, 1.45vw, 1.18rem);
   line-height: 1.46;
+  text-shadow: 0 1px 6px rgba(247, 250, 255, 0.92);
 }
 
 .hero__actions,
@@ -826,7 +850,7 @@ h3 {
   }
 
   .hero {
-    min-height: 76svh;
+    min-height: 62svh;
     background-position: 58% center;
   }
 
