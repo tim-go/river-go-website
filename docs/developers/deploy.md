@@ -47,24 +47,13 @@ firebase target:apply hosting riverlaunch-prod riverlaunch-app --project river-g
 From the repository root:
 
 ```sh
-RIVERLAUNCH_FIREBASE_MEASUREMENT_ID=G-7WSED71W56 node scripts/build-analytics-config.mjs
 firebase deploy --only hosting:riverlaunch-prod --project river-go-prod
 ```
 
-The site deploys the contents of `public/`. `G-7WSED71W56` is the production
-Firebase/GA measurement ID for the RiverLaunch marketing Web App in
-`river-go-prod`.
-
-If you are deploying a staging marketing copy and want it to report into the
-existing RiverLaunch staging GA property, use:
-
-```sh
-RIVERLAUNCH_FIREBASE_MEASUREMENT_ID=G-WVKM71E8VW node scripts/build-analytics-config.mjs
-firebase deploy --only hosting:riverlaunch-prod --project river-go-prod
-```
-
-Do not use the staging measurement ID for the production `riverlaunch.app`
-domain once a production marketing web stream exists.
+The site deploys the contents of `public/`. The production Firebase/GA
+measurement ID (`G-7WSED71W56`) is committed directly in
+`public/assets/analytics-config.js` — a GA measurement ID is not a secret, so
+there is no build-time injection step.
 
 ## Analytics Consent
 
@@ -72,9 +61,9 @@ The marketing site loads Google Analytics only after the visitor chooses
 `Allow analytics` in the consent banner. The default state is denied; choosing
 `Not now` stores a declined state and does not initialise GA.
 
-The analytics config is generated into `public/assets/analytics-config.js`. If
-no measurement ID is provided, the banner is hidden and analytics remains
-disabled.
+The measurement ID lives in `public/assets/analytics-config.js`. If
+`measurementId` is set to an empty string, the banner is hidden and analytics
+remains disabled.
 
 Tracked events are deliberately limited to page views, preview-app CTA clicks,
 and lead/contact CTA clicks. Do not send personal information such as email

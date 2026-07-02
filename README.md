@@ -60,16 +60,12 @@ in the `river-go-prod` Firebase project. The configured site id is
 
 ## Analytics Config
 
-Analytics is consent-gated and disabled unless `public/assets/analytics-config.js`
-contains a Firebase/GA measurement ID. Generate that file at build/deploy time:
-
-```sh
-RIVERLAUNCH_FIREBASE_MEASUREMENT_ID=G-7WSED71W56 node scripts/build-analytics-config.mjs
-```
-
-The same script also accepts `VITE_FIREBASE_MEASUREMENT_ID` or
-`NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID` for compatibility with app-style
-environment names.
+Analytics is consent-gated: Google Analytics only loads after a visitor chooses
+"Allow analytics". The GA measurement ID lives in
+`public/assets/analytics-config.js`, committed with the production ID
+(`G-7WSED71W56`). A GA measurement ID is not a secret — it ships to the browser
+on every page — so it is checked in directly. To disable analytics, set
+`measurementId` to an empty string.
 
 If the site has not been created yet:
 

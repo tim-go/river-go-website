@@ -6,8 +6,7 @@
   "description": "Static marketing website for RiverLaunch.app",
   "scripts": {
     "dev": "node scripts/server.mjs",
-    "start": "node scripts/server.mjs",
-    "build:analytics": "node scripts/build-analytics-config.mjs"
+    "start": "node scripts/server.mjs"
   },
   "engines": {
     "node": ">=18"
