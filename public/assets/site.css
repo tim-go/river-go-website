@@ -898,3 +898,38 @@ h3 {
     padding: 18px;
   }
 }
+
+/* Legal pages (Privacy, Terms) — narrow, readable prose */
+.legal-doc {
+  max-width: 760px;
+}
+.legal-doc h2 {
+  margin: 32px 0 8px;
+  font-family: var(--font-head);
+  font-size: 1.25rem;
+  color: var(--ink);
+}
+.legal-doc > .callout + h2 {
+  margin-top: 28px;
+}
+.legal-doc p,
+.legal-doc li {
+  line-height: 1.65;
+  color: var(--muted);
+}
+.legal-doc ul {
+  margin: 8px 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 6px;
+}
+.legal-doc a {
+  color: var(--blue-bright);
+  font-weight: 600;
+}
+.legal-doc__foot {
+  margin-top: 30px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  color: var(--ink);
+}
