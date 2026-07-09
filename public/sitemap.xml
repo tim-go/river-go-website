@@ -4,15 +4,21 @@
     <loc>https://riverlaunch.app/</loc>
   </url>
   <url>
-    <loc>https://riverlaunch.app/product.html</loc>
+    <loc>https://riverlaunch.app/product</loc>
   </url>
   <url>
-    <loc>https://riverlaunch.app/community.html</loc>
+    <loc>https://riverlaunch.app/profile</loc>
   </url>
   <url>
-    <loc>https://riverlaunch.app/privacy.html</loc>
+    <loc>https://riverlaunch.app/clubs</loc>
   </url>
   <url>
-    <loc>https://riverlaunch.app/terms.html</loc>
+    <loc>https://riverlaunch.app/community</loc>
+  </url>
+  <url>
+    <loc>https://riverlaunch.app/privacy</loc>
+  </url>
+  <url>
+    <loc>https://riverlaunch.app/terms</loc>
   </url>
 </urlset>

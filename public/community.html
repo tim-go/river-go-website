@@ -1,52 +1,40 @@
 <!doctype html>
-<html lang="en-GB" data-theme="daybreak">
+<html lang="en-GB">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script>
-      (function () {
-        try {
-          var t = localStorage.getItem("rl-theme");
-          if (t === "daybreak" || t === "surge") document.documentElement.setAttribute("data-theme", t);
-        } catch (e) {}
-      })();
-    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
     <title>Community | RiverLaunch.app</title>
-    <meta name="description" content="See how paddlers keep RiverLaunch.app fresh — dated reports, hazards, access notes, and photos, confirmed and kept honest by the community.">
+    <meta name="description" content="How paddlers keep RiverLaunch.app fresh — dated reports, hazards, access notes, and photos, confirmed and kept honest by the community.">
     <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="assets/site.css">
   </head>
   <body>
-    <header class="site-header site-header--light">
+    <header class="site-header">
       <div class="nav-inner">
-        <a class="brand" href="index.html">
+        <a class="brand" href="index.html" aria-label="RiverLaunch.app home">
           <img src="assets/icons/favicon.svg" alt="">
-          <span><strong>River<span class="brand-launch">Launch</span>.app</strong><small>River intelligence</small></span>
+          <strong>River<span class="accent">Launch</span>.app</strong>
         </a>
+        <span class="pill">Early access</span>
         <nav class="nav-links" aria-label="Main navigation">
-          <a href="index.html">Home</a>
           <a href="product.html">Product</a>
+          <a href="profile.html">Profile</a>
+          <a href="clubs.html">Clubs</a>
           <a href="community.html" aria-current="page">Community</a>
-          <a class="button button--dark" href="mailto:hello@riverlaunch.app" data-analytics-event="generate_lead" data-analytics-source="marketing_site">Pilot enquiries</a>
+          <a class="button button--primary" href="https://staging.riverlaunch.app" target="_blank" rel="noopener" data-analytics-event="select_content" data-analytics-content-type="cta" data-analytics-item-id="nav_open_app">Open the app</a>
         </nav>
       </div>
     </header>
-    <aside class="preview-banner" aria-label="Preview application notice">
-      <div class="preview-banner__inner">
-        <strong>Preview only:</strong>
-        <span>Try the current RiverLaunch application preview at staging.riverlaunch.app.</span>
-        <a href="https://staging.riverlaunch.app" target="_blank" rel="noopener" data-analytics-event="select_content" data-analytics-content-type="cta" data-analytics-item-id="preview_banner_open_app">Open preview app</a>
-      </div>
-    </aside>
+
     <main>
       <section class="page-hero">
         <div class="container page-intro">
           <p class="eyebrow">Community data</p>
-          <h1>Structured contributions, not loose map pins.</h1>
-          <p>
+          <h1>Every note has a date, a place, and a paddler behind it.</h1>
+          <p class="lede">
             Every photo, hazard, and access note is tied to a place and a date —
             so you can see what's recent, confirm what's still true, and flag
             what's changed since you were last there.
@@ -55,102 +43,111 @@
       </section>
 
       <section class="section">
-        <div class="container visual-pair">
-          <figure class="screenshot">
-            <img src="assets/screenshots/app-river-detail.png" alt="RiverLaunch.app river detail panel with levels, rapids, hazards, access, and photos tabs and a gauge history chart.">
-          </figure>
-          <div class="text-list">
-            <article>
-              <h3>Reports that fit what you're sharing</h3>
-              <p>Hazards, access notes, condition reports, and photos each capture the right detail — and the ones that go stale fastest are flagged first.</p>
-            </article>
-            <article>
-              <h3>You can see how fresh it is</h3>
-              <p>Recent reports, last-confirmed dates, and staleness flags tell you at a glance whether information can still be trusted.</p>
-            </article>
-            <article>
-              <h3>Looked after by the community</h3>
-              <p>Confirmations, disputes, and light moderation keep sensitive and safety-relevant information honest.</p>
-            </article>
+        <div class="container split">
+          <div class="shot-stage">
+            <img src="assets/screenshots/crops/crop-river-panel.png" alt="RiverLaunch.app river panel for Afon Tryweryn with tabs for rapids, hazards, access and photos, and a live gauge reading 0.83 metres.">
+          </div>
+          <div>
+            <p class="eyebrow">How it stays fresh</p>
+            <h2>Built to show its age.</h2>
+            <ul>
+              <li><span><strong>Reports that fit what you're sharing</strong> — hazards, access notes, condition reports, and photos each capture the right detail, and the ones that go stale fastest are flagged first.</span></li>
+              <li><span><strong>Freshness you can see</strong> — recent reports, last-confirmed dates, and staleness flags tell you at a glance whether information can still be trusted.</span></li>
+              <li><span><strong>Looked after by the community</strong> — confirmations, disputes, and light moderation keep sensitive and safety-relevant information honest.</span></li>
+            </ul>
           </div>
         </div>
       </section>
 
-      <section class="section section--soft">
+      <section class="section section--tint">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">What you can add</p>
+            <h2>Contributions with structure.</h2>
+          </div>
+          <div class="cards">
+            <article class="card">
+              <h3>Hazards, with the detail that matters</h3>
+              <p>Each hazard carries its type, severity, the date it was seen, evidence photos, and how many paddlers have confirmed it.</p>
+            </article>
+            <article class="card">
+              <h3>Access notes, practical and sensitive</h3>
+              <p>Access notes cover the practical stuff and the sensitive stuff — parking, permissions, licences, and local access etiquette.</p>
+            </article>
+            <article class="card">
+              <h3>Photos, pinned to the real thing</h3>
+              <p>Every photo is attached to a river, access point, hazard, or report, so you know exactly what you're looking at.</p>
+            </article>
+          </div>
+          <figure style="margin: 40px 0 0;">
+            <img src="assets/screenshots/crops/crop-photos-grid.jpg" alt="A grid of nine paddler photos on the Afon Tryweryn river page — rapids, slalom gates, and access points at different water levels." style="border-radius: 10px; border: 1px solid var(--line); box-shadow: var(--shadow-soft);">
+            <figcaption style="padding: 14px 2px 0; color: var(--muted); font-size: 0.92rem;">Paddler photos on the Afon Tryweryn river page — each one attached to the river, an access point, or a hazard.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section">
         <div class="container">
           <div class="callout">
             <p>
-              Safety language matters to us. RiverLaunch shows recent reports, known
-              hazards, last-confirmed dates, and how certain we are — and never tells
-              you a river is safe, approved, or guaranteed to be passable. The
-              decision is always yours, on the day.
+              <strong>Safety language matters to us.</strong> RiverLaunch shows recent
+              reports, known hazards, last-confirmed dates, and how certain we are —
+              and never tells you a river is safe, approved, or guaranteed to be
+              passable. The decision is always yours, on the day.
             </p>
           </div>
         </div>
       </section>
 
-      <section class="section">
+      <section class="section" style="padding-top: 0;">
         <div class="container">
-          <div class="preview-cta">
+          <div class="pilot-box">
             <div>
-              <p class="eyebrow">Preview only</p>
-              <h2>Take a look at contributions in the preview app.</h2>
-              <p>
-                Open staging.riverlaunch.app to see how paddlers can add
-                reports, hazards, photos, and access notes. This is still a
-                preview environment, not the public production app.
+              <p class="eyebrow">Add what you find</p>
+              <h2>Paddled it? Improve the map.</h2>
+              <p class="lede">
+                Add a report, a photo, or a hazard from the bank — even with no
+                signal, it syncs when you're back — and keep the information fresh
+                for the next crew.
               </p>
             </div>
-            <div class="cta-row">
-              <a class="button button--dark" href="https://staging.riverlaunch.app" target="_blank" rel="noopener" data-analytics-event="select_content" data-analytics-content-type="cta" data-analytics-item-id="community_preview_open_app">Open preview app</a>
+            <div class="pilot-ctas">
+              <a class="button button--primary" href="https://staging.riverlaunch.app" target="_blank" rel="noopener" data-analytics-event="select_content" data-analytics-content-type="cta" data-analytics-item-id="community_open_app">Open the early-access app</a>
+              <p class="fine">Contributions are moderated before they're shown as confirmed.</p>
             </div>
           </div>
         </div>
       </section>
-
-      <section class="section">
-        <div class="container feature-grid">
-          <article class="feature">
-            <span class="kicker">Hazards</span>
-            <h3>The detail that matters</h3>
-            <p>Each hazard carries its type, severity, the date it was seen, evidence photos, and how many paddlers have confirmed it.</p>
-          </article>
-          <article class="feature">
-            <span class="kicker">Access</span>
-            <h3>Practical and sensitive</h3>
-            <p>Access notes cover the practical stuff and the sensitive stuff — parking, permissions, licences, and local access etiquette.</p>
-          </article>
-          <article class="feature">
-            <span class="kicker">Photos</span>
-            <h3>Pinned to the real thing</h3>
-            <p>Every photo is attached to a river, access point, hazard, or report, so you know exactly what you're looking at.</p>
-          </article>
-        </div>
-      </section>
     </main>
+
     <footer class="site-footer">
-      <div class="container footer-inner">
-        <span>Community guidance is useful only when freshness and uncertainty are visible.</span>
-        <nav class="footer-links" aria-label="Footer">
-          <a href="index.html">Home</a>
-          <a href="product.html">Product</a>
-          <a href="privacy.html">Privacy</a>
-          <a href="terms.html">Terms</a>
-          <button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch theme">
-            <span class="theme-toggle__dot" aria-hidden="true"></span>
-            <span data-theme-label>Daybreak</span>
-          </button>
-        </nav>
+      <div class="container">
+        <div class="footer-inner">
+          <span><span class="footer-brand">River<span class="accent">Launch</span>.app</span> — live levels and local knowledge for UK rivers.</span>
+          <nav aria-label="Footer">
+            <a href="product.html">Product</a>
+            <a href="profile.html">Profile</a>
+            <a href="clubs.html">Clubs</a>
+            <a href="community.html">Community</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+            <a href="mailto:hello@riverlaunch.app" data-analytics-event="generate_lead" data-analytics-source="marketing_site">Contact</a>
+          </nav>
+        </div>
+        <p class="footer-fine">
+          Early-access build. River and access information is community-maintained
+          and may be incomplete or out of date — conditions change quickly.
+        </p>
       </div>
     </footer>
+
     <div class="analytics-consent" id="analytics-consent" hidden>
       <p>We use analytics to understand which pages and features are useful. You can use the site without analytics.</p>
       <div class="analytics-consent__actions">
-        <button type="button" class="button button--dark" data-analytics-accept>Allow analytics</button>
-        <button type="button" class="button button--ghost" data-analytics-decline>Not now</button>
+        <button type="button" class="button button--primary" data-analytics-accept>Allow analytics</button>
+        <button type="button" class="button button--quiet" data-analytics-decline>Not now</button>
       </div>
     </div>
-    <script src="assets/theme.js"></script>
     <script src="assets/analytics-config.js"></script>
     <script src="assets/analytics.js"></script>
   </body>

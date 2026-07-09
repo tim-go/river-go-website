@@ -28,20 +28,20 @@ not get the clean-URL behaviour.
 
 ## Theme
 
-The site ships a **Daybreak** light theme (Space Grotesk + Sora type, electric-blue
-and signal-yellow accents) as the default, with the app's **Surge** dark navy
-alternate. The two share one accent language and are driven
-entirely by CSS custom properties in `public/assets/site.css` — Surge tokens
-live in `:root`, Daybreak overrides under `[data-theme="daybreak"]`. A footer
-toggle (wired by `public/assets/theme.js`) flips `data-theme` on `<html>` and
-remembers the choice in `localStorage`; a tiny inline `<head>` script applies
-the saved theme before paint to avoid a flash.
+The site uses a single light theme (Space Grotesk + Sora type, deep-navy ink,
+electric-blue accent, signal-yellow reserved for the dark bands), defined as
+CSS custom properties in `public/assets/site.css`. The app's dark **Surge**
+look appears only inside screenshots and the dark "Facts, not verdicts" and
+footer bands. There is no runtime theme toggle.
 
 ## Screenshots
 
 Product screenshots live in `public/assets/screenshots` and are captured from a
-running instance of the sibling `../river-go` app. To regenerate them (desktop
-views plus device-framed mobile shots):
+running instance of the sibling `../river-go` app. Close-up crops used by the
+feature sections (level card, layers panel, Discover grid, trimmed river
+detail) live in `public/assets/screenshots/crops` and are cut from those
+captures. To regenerate the captures (desktop views plus device-framed mobile
+shots):
 
 ```sh
 # with the app running locally and Playwright installed in ../river-go

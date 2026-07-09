@@ -1,21 +1,13 @@
 <!doctype html>
-<html lang="en-GB" data-theme="daybreak">
+<html lang="en-GB">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script>
-      (function () {
-        try {
-          var t = localStorage.getItem("rl-theme");
-          if (t === "daybreak" || t === "surge") document.documentElement.setAttribute("data-theme", t);
-        } catch (e) {}
-      })();
-    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
-    <title>RiverLaunch.app | Community river intelligence for paddlers</title>
-    <meta name="description" content="RiverLaunch.app helps UK paddlers plan real river trips with live levels, access notes, hazards, photos, and fresh community reports.">
+    <title>RiverLaunch.app — live levels and local knowledge for UK rivers</title>
+    <meta name="description" content="Real, community-kept knowledge for the rivers you paddle — access points, hazards, photos, recent reports, and live levels from EA and NRW gauges, all in one place.">
     <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="assets/site.css">
   </head>
@@ -24,181 +16,176 @@
       <div class="nav-inner">
         <a class="brand" href="index.html" aria-label="RiverLaunch.app home">
           <img src="assets/icons/favicon.svg" alt="">
-          <span>
-            <strong>River<span class="brand-launch">Launch</span>.app</strong>
-            <small>River intelligence</small>
-          </span>
+          <strong>River<span class="accent">Launch</span>.app</strong>
         </a>
+        <span class="pill">Early access</span>
         <nav class="nav-links" aria-label="Main navigation">
-          <a href="index.html" aria-current="page">Home</a>
           <a href="product.html">Product</a>
+          <a href="profile.html">Profile</a>
+          <a href="clubs.html">Clubs</a>
           <a href="community.html">Community</a>
-          <a class="button button--ghost" href="mailto:hello@riverlaunch.app" data-analytics-event="generate_lead" data-analytics-source="marketing_site">Pilot enquiries</a>
+          <a class="button button--primary" href="https://staging.riverlaunch.app" target="_blank" rel="noopener" data-analytics-event="select_content" data-analytics-content-type="cta" data-analytics-item-id="nav_open_app">Open the app</a>
         </nav>
       </div>
     </header>
-    <aside class="preview-banner" aria-label="Preview application notice">
-      <div class="preview-banner__inner">
-        <strong>Preview only:</strong>
-        <span>The application preview is available at staging.riverlaunch.app.</span>
-        <a href="https://staging.riverlaunch.app" target="_blank" rel="noopener" data-analytics-event="select_content" data-analytics-content-type="cta" data-analytics-item-id="preview_banner_open_app">Open preview app</a>
-      </div>
-    </aside>
 
     <main>
       <section class="hero">
-        <div class="hero__content">
-          <p class="eyebrow">UK-first canoe planning</p>
-          <h1>River<span class="brand-launch">Launch</span>.app</h1>
-          <p class="hero__copy">
-            Real, community-kept knowledge for the rivers you paddle — access points,
-            hazards, photos, recent reports, and live levels, all in one place.
-          </p>
-          <div class="hero__actions">
-            <a class="button button--dark" href="https://staging.riverlaunch.app" target="_blank" rel="noopener" data-analytics-event="select_content" data-analytics-content-type="cta" data-analytics-item-id="hero_open_preview_app">Open preview app</a>
-            <a class="button" href="product.html">See the product</a>
-            <a class="button button--ghost" href="community.html">How contributions work</a>
-          </div>
-        </div>
-      </section>
-
-      <section class="proof-strip" aria-label="Product focus">
-        <div class="proof-item">
-          <strong>By the stretch</strong>
-          <span>Plan around the section you'll actually paddle — put-in to take-out.</span>
-        </div>
-        <div class="proof-item">
-          <strong>Always fresh</strong>
-          <span>Every report, hazard, and access note shows how recent and how confirmed it is.</span>
-        </div>
-        <div class="proof-item">
-          <strong>UK rivers</strong>
-          <span>Built around practical UK touring and whitewater rivers.</span>
-        </div>
-        <div class="proof-item">
-          <strong>Offline-ready</strong>
-          <span>Add what you find on the bank with no signal — it syncs when you're back.</span>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="container">
-          <div class="section-heading">
-            <div>
-              <p class="eyebrow">What it does</p>
-              <h2>Answer the questions paddlers ask before they travel.</h2>
+        <div class="hero-inner">
+          <div class="hero-panel">
+            <p class="eyebrow">UK-first canoe planning</p>
+            <h1>River<span class="accent">Launch</span>.app</h1>
+            <p class="lede">
+              Real, community-kept knowledge for the rivers you paddle — access
+              points, hazards, photos, recent reports, and live levels, all in
+              one place.
+            </p>
+            <div class="hero-ctas">
+              <a class="button button--primary" href="https://staging.riverlaunch.app" target="_blank" rel="noopener" data-analytics-event="select_content" data-analytics-content-type="cta" data-analytics-item-id="hero_open_app">Open the early-access app</a>
+              <a class="button button--quiet" href="product.html">See the product</a>
             </div>
-            <p>
-              It's more than a gauge reading. RiverLaunch brings together the access
-              points, hazards, photos, and recent reports for a real stretch of river,
-              so you can pick a trip that suits the day's conditions and your group.
-            </p>
+            <p class="hero-note">Free while in early access. Works in the browser — installable on your phone.</p>
           </div>
-          <div class="feature-grid">
-            <article class="feature">
-              <span class="kicker">Plan</span>
-              <h3>Section context</h3>
-              <p>Put-ins, take-outs, distance, estimated time, canoe suitability, route character, and practical access notes.</p>
+        </div>
+      </section>
+
+      <section class="section" id="how">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">How it works</p>
+            <h2>Before you load the boats.</h2>
+            <p class="lede">Three questions decide every trip. RiverLaunch answers them on one screen.</p>
+          </div>
+          <div class="steps">
+            <article class="step">
+              <span class="num">01 — IS IT RUNNING?</span>
+              <div class="shot">
+                <img src="assets/screenshots/crops/crop-levels-28d.png" alt="Gauge card for Tryweryn at Bala Weir X: 0.83 metres and rising, with a 28-day chart showing the dam-release pattern, observation time and a link to the official source.">
+              </div>
+              <h3>Check the level</h3>
+              <p>The latest reading, its trend, and up to 28 days of history — stamped with the observation time and linked to the official source.</p>
             </article>
-            <article class="feature">
-              <span class="kicker">Check</span>
-              <h3>Level interpretation</h3>
-              <p>Linked gauges and community runnable ranges help you read what today's level actually means for a stretch.</p>
+            <article class="step">
+              <span class="num">02 — WHERE DO YOU GET ON?</span>
+              <div class="shot">
+                <img src="assets/screenshots/crops/crop-map-route.png" alt="Map with a highlighted river route and numbered clusters of access points near Beddgelert.">
+              </div>
+              <h3>Read the stretch</h3>
+              <p>Rivers drawn end to end on OS mapping, with access points, parking, portages and features pinned exactly where they are.</p>
             </article>
-            <article class="feature">
-              <span class="kicker">Refresh</span>
-              <h3>Community updates</h3>
-              <p>Hazards, condition reports, photos, confirmations, disputes, and staleness indicators keep changing information visible.</p>
+            <article class="step">
+              <span class="num">03 — WHAT'S CHANGED?</span>
+              <div class="shot">
+                <img src="assets/screenshots/crops/crop-river-header.png" alt="River header for Afon Colwyn, Above Beddgelert to the Glaslyn, with grade IV+, whitewater and Snowdonia / Eryri tags.">
+              </div>
+              <h3>See what's fresh</h3>
+              <p>Hazards and reports carry a date, a place and a severity — and other paddlers can confirm or dispute them, so stale information shows its age.</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section section--soft">
-        <div class="container visual-pair">
-          <figure class="screenshot">
-            <img src="assets/screenshots/app-discover.png" alt="RiverLaunch.app Discover page listing UK rivers with live level readings, trend sparklines, grades, and discipline tags.">
-          </figure>
-          <div class="copy-block">
-            <p class="eyebrow">Discover rivers</p>
-            <h2>Every river, with live level context at a glance.</h2>
-            <p>
-              The Discover page brings UK rivers together with current gauge
-              readings, trend sparklines, grades, discipline tags, and section
-              counts — filterable by whitewater, canoe touring, and nation.
+      <section class="section section--tint">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Discover</p>
+            <h2>Every river, ranked by what the water is doing now.</h2>
+            <p class="lede">
+              Live readings, trend sparklines, grades and section counts for the whole
+              catalogue — filter by whitewater or touring, England, Scotland or Wales.
             </p>
-            <p class="caption">
-              Screenshots show preview app content. River and access information
-              should be locally verified before public trip planning.
-            </p>
+          </div>
+          <div class="browser">
+            <div class="browser-bar">
+              <span class="dots"><i></i><i></i><i></i></span>
+              <span class="url">staging.riverlaunch.app/discover</span>
+            </div>
+            <img src="assets/screenshots/crops/crop-discover-clean.png" alt="The Discover screen: a grid of UK river cards with live levels, rising and falling trends, sparklines and grade badges.">
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="map">
+        <div class="container split">
+          <div>
+            <p class="eyebrow">The map</p>
+            <h2>One map, tuned to your day.</h2>
+            <ul>
+              <li><span><strong>Rivers coloured by live level band</strong> — see what's up at a glance, across a whole region.</span></li>
+              <li><span><strong>Access, hazards, features and photos</strong> pinned to the riverbank, not floating nearby.</span></li>
+              <li><span><strong>Rain radar and gauges</strong> for the water; <strong>pubs, car parks, toilets and cafés</strong> for everything around it.</span></li>
+              <li><span><strong>Filter by discipline</strong> — whitewater or touring — and the map declutters itself.</span></li>
+            </ul>
+          </div>
+          <div class="shot-stage">
+            <img src="assets/screenshots/crops/crop-layers-panel.png" alt="The Layers panel: discipline filter, river and route layers, access, hazard, feature and photo pins, rain radar, gauge stations and amenities.">
+          </div>
+        </div>
+      </section>
+
+      <section class="verdicts" id="community">
+        <div class="container">
+          <p class="eyebrow">Community data, kept honest</p>
+          <h2>Facts, not verdicts.</h2>
+          <p>
+            You will never see "safe", "approved" or "good to go" in RiverLaunch.
+            You'll see today's level, recent reports, known hazards, and when each
+            was last confirmed — with its source. Reading the water is your call.
+            Our job is to make sure you're reading today's information, not last
+            year's.
+          </p>
+          <div class="terms" aria-label="Language we use and avoid">
+            <span>last confirmed 6 days ago</span>
+            <span>reported by 3 paddlers</span>
+            <span>needs confirmation</span>
+            <span>no live gauge</span>
+            <span class="no">safe to paddle</span>
+            <span class="no">approved route</span>
           </div>
         </div>
       </section>
 
       <section class="section">
         <div class="container">
-          <div class="preview-cta">
+          <div class="section-head">
+            <p class="eyebrow">Groups</p>
+            <h2>Sort the shuttle once, not across three group chats.</h2>
+            <p class="lede">Clubs, trip crews and regular paddling friends get their own space to plan the day.</p>
+          </div>
+          <div class="cards">
+            <article class="card">
+              <h3>Plan the session</h3>
+              <p>Pick the river, set the date and meeting point, and share parking and shuttle plans where everyone can find them.</p>
+            </article>
+            <article class="card">
+              <h3>Know who's coming</h3>
+              <p>Going, maybe, or out — RSVPs with availability notes, and on-the-day check-in and check-out so it's clear who's on the water.</p>
+            </article>
+            <article class="card">
+              <h3>Emergency contact, scoped</h3>
+              <p>Share your emergency contact with the session leader for that day only. It closes automatically when the session ends.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="get-involved">
+        <div class="container">
+          <div class="pilot-box">
             <div>
-              <p class="eyebrow">Application preview</p>
-              <h2>Try the preview build.</h2>
-              <p>
-                The live application preview is hosted at staging.riverlaunch.app.
-                It uses prototype content, so treat it as a preview only,
-                not as production river guidance.
+              <p class="eyebrow">Get involved</p>
+              <h2>Built in the open with UK paddlers.</h2>
+              <p class="lede">
+                RiverLaunch is in early access and being shaped with paddlers and
+                clubs — getting access notes, hazards and level context right,
+                river by river. If you'd like to help, or you want your local
+                river covered next, we'd love to hear from you.
               </p>
             </div>
-            <div class="cta-row">
-              <a class="button button--dark" href="https://staging.riverlaunch.app" target="_blank" rel="noopener" data-analytics-event="select_content" data-analytics-content-type="cta" data-analytics-item-id="preview_cta_open_app">Open staging.riverlaunch.app</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="container band">
-          <div>
-            <p class="eyebrow">On the water</p>
-            <h2>Everything you need for the trip.</h2>
-            <p>
-              The detail that decides whether a trip works — access, parking,
-              campsites, take-outs, levels, and recent hazards — gathered in one
-              place for real UK touring and whitewater rivers.
-            </p>
-            <div class="cta-row">
-              <a class="button button--dark" href="product.html">See the product</a>
-            </div>
-          </div>
-          <div class="text-list">
-            <article>
-              <h3>Plan the whole trip</h3>
-              <p>Put-ins, take-outs, parking, campsites, and portages — the practical detail that makes a day on the water run smoothly.</p>
-            </article>
-            <article>
-              <h3>Know today's conditions</h3>
-              <p>Live levels, community runnable ranges, and recent hazards, so you can make the call before you leave home.</p>
-            </article>
-            <article>
-              <h3>Add what you find</h3>
-              <p>Paddled it? Add a report, photo, or hazard and keep the information fresh for the next crew.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section--ink">
-        <div class="container section-heading">
-          <div>
-            <p class="eyebrow">Give back</p>
-            <h2>Every trip can improve the map.</h2>
-          </div>
-          <div>
-            <p>
-              RiverLaunch shows recent reports and known hazards along with how
-              confident we are in them. We never tell you a river is safe, approved,
-              or guaranteed — that call is always yours, on the day.
-            </p>
-            <div class="cta-row">
-              <a class="button" href="community.html">How contributions work</a>
+            <div class="pilot-ctas">
+              <a class="button button--primary" href="mailto:hello@riverlaunch.app?subject=RiverLaunch%20early%20access" data-analytics-event="generate_lead" data-analytics-source="marketing_site">Get in touch</a>
+              <a class="button button--quiet" href="https://staging.riverlaunch.app" target="_blank" rel="noopener" data-analytics-event="select_content" data-analytics-content-type="cta" data-analytics-item-id="get_involved_open_app">Open the early-access app</a>
+              <p class="fine">Tell us which river we should map next.</p>
             </div>
           </div>
         </div>
@@ -206,29 +193,33 @@
     </main>
 
     <footer class="site-footer">
-      <div class="container footer-inner">
-        <span>RiverLaunch.app. Community river intelligence for paddlers.</span>
-        <nav class="footer-links" aria-label="Footer">
-          <a href="product.html">Product</a>
-          <a href="community.html">Community</a>
-          <a href="mailto:hello@riverlaunch.app" data-analytics-event="generate_lead" data-analytics-source="marketing_site">Contact</a>
-          <a href="privacy.html">Privacy</a>
-          <a href="terms.html">Terms</a>
-          <button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch theme">
-            <span class="theme-toggle__dot" aria-hidden="true"></span>
-            <span data-theme-label>Daybreak</span>
-          </button>
-        </nav>
+      <div class="container">
+        <div class="footer-inner">
+          <span><span class="footer-brand">River<span class="accent">Launch</span>.app</span> — live levels and local knowledge for UK rivers.</span>
+          <nav aria-label="Footer">
+            <a href="product.html">Product</a>
+            <a href="profile.html">Profile</a>
+            <a href="clubs.html">Clubs</a>
+            <a href="community.html">Community</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+            <a href="mailto:hello@riverlaunch.app" data-analytics-event="generate_lead" data-analytics-source="marketing_site">Contact</a>
+          </nav>
+        </div>
+        <p class="footer-fine">
+          Early-access build. River and access information is community-maintained
+          and may be incomplete or out of date — conditions change quickly.
+        </p>
       </div>
     </footer>
+
     <div class="analytics-consent" id="analytics-consent" hidden>
       <p>We use analytics to understand which pages and features are useful. You can use the site without analytics.</p>
       <div class="analytics-consent__actions">
-        <button type="button" class="button button--dark" data-analytics-accept>Allow analytics</button>
-        <button type="button" class="button button--ghost" data-analytics-decline>Not now</button>
+        <button type="button" class="button button--primary" data-analytics-accept>Allow analytics</button>
+        <button type="button" class="button button--quiet" data-analytics-decline>Not now</button>
       </div>
     </div>
-    <script src="assets/theme.js"></script>
     <script src="assets/analytics-config.js"></script>
     <script src="assets/analytics.js"></script>
   </body>
